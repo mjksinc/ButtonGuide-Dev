@@ -38,7 +38,33 @@ Something as simple as a button can have a powerful actions when connected to Az
   b. A name for your button. This could be the same as the Device ID, or something completely different like location the button will be placed
   c. Select *Create* when completed
 4. You should now be on the device configuration page for the button you just created. If not, select *Device Explorer* in the right-side menu and navigate to your new device.
-5. For this 
+5. You'll now configure the device's measurements. Specifically, the device will transmit a click *event* . Select *edit template* to begin configuring the measurements
+6. Make sure you're in the *measurements* tab, click *Edit Template* and select *+ New Measurement > Event* (you may need to scroll depending on the zoom level of your browser)
+7. Now you'll configure the event parameters:
+  a. Enter a *Display Name* for how the event will be labelled in your application
+  b. Enter a *Field Name* for the measurement. __Note:__ This field name will need to be remembered for when you configure the button settings in future steps
+  c. Set the *Default Severity* to any level for this use case
+  d. Select *Save* when you're finished
+8. A *Rule* needs to be created so your IoT Central application knows when to trigger an action. Select the *Rules* tab and click *Edit Template*.
+9. To add a new rule, select *+ New Rule* then *Event*
+10. Configure the rule with the following properties:
+  a. *Name* should be descriptove of the rule's action to avoid confusion
+  b. Select *Enable* for both the template and device options
+  c. Click the *+* symbol next to *Conditions*
+    i. Click the dropdown box under *Measurements* and choose the event you created earlier
+    ii. For *Aggregator*, select *Count*
+    iii. For *Operator*, select *is Greater Than*
+    iv. Enter *3* for the threshold
+  d. Select the *time duration* under the *Aggregation Time Window* as 10 minutes
+  e. Click save to confirm properties
+11. Now you've created the rule trigger, you'll need to create the action
+  a. Scroll until you see *Actions* and click the adjacent *+* symbol.
+  b. Select the email tile and enter the following details
+    i. *Display Name*
+    ii. Recipient addresses in the *To* field
+    iii. A message to be included in the email under *Notes*
+  c. Click save when complete
+12. Congratualations! You've succssfully created a device in IoT Central and configured a rule to be action based on aggreagate events from the button
 
 ## Generating a SAS Token using Device Provisioning Service
 

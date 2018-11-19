@@ -64,11 +64,38 @@ Something as simple as a button can have a powerful actions when connected to Az
     ii. Recipient addresses in the *To* field
     iii. A message to be included in the email under *Notes*
   c. Click save when complete
-12. Congratualations! You've succssfully created a device in IoT Central and configured a rule to be action based on aggreagate events from the button
+12. Congratualations! You've succssfully created a device in IoT Central and configured a rule to be actioned based on events from the button
 
 ## Generating a SAS Token using Device Provisioning Service
+1. Now you'll need to copy some credentials to connect your device. Return to the *Device Explorer*  page by selecting the icon on in the right-side menu
+2. Select the device template, then the device you created previously
+3. Click *Connect* on the device screen. This will generate credentials for you to create a connection string through the Azure Device Provisioning Service (DPS).
+4. Save the following credentials for later use:
+  a. Under **Device Connection**, copy the *Scope ID* and *Device ID*
+  b. Under **Credentials**, select *Shared Access Signature*, then copy the *Primary ID*
+5. Select *Close* when complete
+
+- [ ] *TODO* add Device Provisioning Steps
+
+X. Now you've generated your connection string, it's time to connect your teXXmo button
 
 # TeXXmo Button
+Note: these steps are also available under "*Getting Started*" [on the teXXmo page]()https://catalog.azureiotsolutions.com/details?title=teXXmo-IoT-Button&source=home-page) of the Azure Device Catalog
+
 ## Configuring your button
+1. Put the teXXmo button into Access Point (AP) mode by pressing and holding the button for 6 seconds. The LED will change to a yellow flashing strobe, then to a pulsing red.
+    __Note:__ if the button begins to rapidly flash green, wait until it stops, then try again.
+2. Open the network connection settings on your desktop and select the wifi network beginning with *ESP_XX:XX:XX* (The numbers will match the MAC address of your button). The light will continue to pulse red while in AP mode. 
+    __Note:__ this will disconnect you from the internet
+3. Open a web browser and go to *192.168.4.1*. You should arrive at the homepage for your button.
+4. Select the *IoT Hub Configuration* tab at the top left of the screen. This is where we'll break down the connection string generated in the previous section:
+  a. Under ** copy the *IoT Hub URI*
+  b. Under ** copy the *Device ID*
+  c. Under ** copy the *SAS Token*
+5. Select the *WIFI* tab at the top of the screen and enter the SSID and Password for your wifi network to connect the button to the internet. Select *Save* when complete
+6. Next, click the *User JSON* tab. This is where you can write the JSON message the device will deliver when clicked. Enter the text below and click *Save* when complete
+  `{"click": "1"}
+  __Note:__ the key (in this case, "click") should match the Field Name you entered into IoT Central previously
+7. Now select the *Shutdown* tab so exit the homepage and save your configuration to the button.
 
 ## Connecting to Azure

@@ -111,23 +111,36 @@ Something as simple as a button can have powerful actions when connected to Azur
 
 ![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.10.png)
 
-11. Now you've created the rule trigger, you'll need to create the action
-  a. Scroll until you see *Actions* and click the adjacent *+* symbol.
-  b. Select the email tile and enter the following details
-    i. *Display Name*
-    ii. Recipient addresses in the *To* field
-    iii. A message to be included in the email under *Notes*
-  c. Click save when complete
-12. Congratualations! You've succssfully created a device in IoT Central and configured a rule to be actioned based on events from the button
+11. Now you've created the **Rule**, let's create the **Action** IoT Central should take if the Rule is triggered
+    - Select the Rule you just created
+    - Scroll until you see *Actions* in the window and click the adjacent *+* symbol.
+    - Select the email tile
+    
+![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.11.png)
+    
+12. Now you'll need to configure the email that's sent when the rule is triggered:
+      - Enter a *Display Name*
+      - Recipient addresses in the *To* field. **Note:** They have to have logged into your IoT Central applcaition previously to receive the email
+      - A message to be included in the email under *Notes*
+    - Click *Save* when complete
+    
+![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.11.png)
+    
+13. Congratualations! You've succssfully created a real device in IoT Central and configured a rule to be actioned based on events from the button
 
 ## Generating a SAS Token using Device Provisioning Service
-1. Now you'll need to copy some credentials to connect your device. Return to the *Device Explorer* page by selecting the icon in the right-side menu
-2. Select the device template, then the device you created previously
-3. Click *Connect* on the device screen. This will generate credentials for you to create a connection string through the Azure Device Provisioning Service (DPS).
-4. Save the following credentials for later use:
-  a. Under **Device Connection**, copy the *Scope ID* and *Device ID*
-  b. Under **Credentials**, select *Shared Access Signature*, then copy the *Primary ID*
-5. Select *Close* when complete
+1. Now you'll need to copy some credentials to connect your device. On the same page as your Measurement and Rule creation, select *Connect* at the top right of screen This will generate credentials for you to create a connection string through the Azure Device Provisioning Service (DPS).
+
+![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image3.2.png)
+
+3. Save the following credentials for later use:
+   - Under Device Connection, copy the *Scope ID* and *Device ID*
+   - Under Credentials**, select *Shared Access Signature*, then copy the *Primary ID*
+   - Select *Close* when complete
+   
+ ![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image3.3.png)
+   
+4. A DPS client will now need to be installed to generate the Connection String for the real device. These instructions are from the[(DPS Key Generation Guide](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-add-device)
 
 - [ ] *TODO* add Device Provisioning Steps
 

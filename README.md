@@ -1,6 +1,6 @@
 # teXXmoButon_IoTCentral
 
-This document contains all the instructions for connecting your teXXmo IoT Button to Azure IoT Central
+This document contains all the instructions for connecting your teXXmo IoT Button to Azure IoT Central and triggering an action based on the number of clicks.
 
 ## Pre-requisites
 - 1 x teXXmo Button
@@ -10,9 +10,11 @@ This document contains all the instructions for connecting your teXXmo IoT Butto
 
 # Acknowledgements
 + [IoT Central Documentation](https://docs.microsoft.com/en-us/azure/iot-central/)
++ [teXXmo Button Page](https://catalog.azureiotsolutions.com/details?title=teXXmo-IoT-Button&source=home-page)
++ [Device Provisioning Service GitHub](https://github.com/Azure/dps-keygen)
 
 # Overview
-Something as simple as a button can have a powerful actions when connected to Azure. In the example, you'll be connecting a physcial teXXmo button to Microsoft's new software-as-a-service application, IoT Central. The button will trigger an alert if pressed 3 times within a short time frame. You'll learn how to deploy your own IoT Central application, create device templates, and use the Device Provisioning Service to connect the teXXmo button to the cloud.
+Something as simple as a button can have powerful actions when connected to Azure. In this example, you'll be connecting a physcial teXXmo button to Microsoft's new software-as-a-service application, IoT Central. The button will trigger an alert if pressed 3 times within a short time frame. You'll learn how to deploy your own IoT Central application, create device templates, and use the Device Provisioning Service to connect the teXXmo button to your application.
 
 ## Setting Up IoT Central
 1. Head on over to the the [IoT Central Homepage](https://azure.microsoft.com/en-au/services/iot-central/) to learn more or select [Getting Started](https://apps.azureiotcentral.com/) to begin creating your application.
@@ -53,8 +55,8 @@ Something as simple as a button can have a powerful actions when connected to Az
   c. Click the *+* symbol next to *Conditions*
     i. Click the dropdown box under *Measurements* and choose the event you created earlier
     ii. For *Aggregator*, select *Count*
-    iii. For *Operator*, select *is Greater Than*
-    iv. Enter *3* for the threshold
+    iii. For *Operator*, select *is Greater Than or Equal to*
+    iv. Enter *2* for the threshold
   d. Select the *time duration* under the *Aggregation Time Window* as 10 minutes
   e. Click save to confirm properties
 11. Now you've created the rule trigger, you'll need to create the action
@@ -67,7 +69,7 @@ Something as simple as a button can have a powerful actions when connected to Az
 12. Congratualations! You've succssfully created a device in IoT Central and configured a rule to be actioned based on events from the button
 
 ## Generating a SAS Token using Device Provisioning Service
-1. Now you'll need to copy some credentials to connect your device. Return to the *Device Explorer*  page by selecting the icon on in the right-side menu
+1. Now you'll need to copy some credentials to connect your device. Return to the *Device Explorer* page by selecting the icon in the right-side menu
 2. Select the device template, then the device you created previously
 3. Click *Connect* on the device screen. This will generate credentials for you to create a connection string through the Azure Device Provisioning Service (DPS).
 4. Save the following credentials for later use:
@@ -80,7 +82,7 @@ Something as simple as a button can have a powerful actions when connected to Az
 X. Now you've generated your connection string, it's time to connect your teXXmo button
 
 # TeXXmo Button
-Note: these steps are also available under "*Getting Started*" [on the teXXmo page]()https://catalog.azureiotsolutions.com/details?title=teXXmo-IoT-Button&source=home-page) of the Azure Device Catalog
+Note: these steps are also available under "*Getting Started*" [on the teXXmo page](https://catalog.azureiotsolutions.com/details?title=teXXmo-IoT-Button&source=home-page) of the Azure Device Catalog
 
 ## Configuring your button
 1. Put the teXXmo button into Access Point (AP) mode by pressing and holding the button for 6 seconds. The LED will change to a yellow flashing strobe, then to a pulsing red.
@@ -89,13 +91,21 @@ Note: these steps are also available under "*Getting Started*" [on the teXXmo pa
     __Note:__ this will disconnect you from the internet
 3. Open a web browser and go to *192.168.4.1*. You should arrive at the homepage for your button.
 4. Select the *IoT Hub Configuration* tab at the top left of the screen. This is where we'll break down the connection string generated in the previous section:
-  a. Under ** copy the *IoT Hub URI*
-  b. Under ** copy the *Device ID*
-  c. Under ** copy the *SAS Token*
+  a. Under *Azure IoT Hub* copy the *Hostname*
+  b. Under *IoT device name* copy the *Device ID*
+  c. Under *IoT device secret* copy the *Shared Access Key*
 5. Select the *WIFI* tab at the top of the screen and enter the SSID and Password for your wifi network to connect the button to the internet. Select *Save* when complete
 6. Next, click the *User JSON* tab. This is where you can write the JSON message the device will deliver when clicked. Enter the text below and click *Save* when complete
   `{"click": "1"}
   __Note:__ the key (in this case, "click") should match the Field Name you entered into IoT Central previously
-7. Now select the *Shutdown* tab so exit the homepage and save your configuration to the button.
+7. Now select the *Shutdown* tab so exit the homepage and save your configuration to the button
+8. Reconnect to your original wifi network and return to your IoT Central Application
 
-## Connecting to Azure
+## Sending Telemetry and Visualising in IoT Central
+1. Now the physical button has been connected, return to the device page in your IoT Central Application by clicking *Device Explorer*, then the device template and device created previously
+2. Click the *Measurements* tab to display the previously-created Event measurment.
+3. Push and hold the physical teXXmo button for ~1 second then release. You should see the green LED frantically flash, then emit a single green pulse to signify successful data transmission
+4. After a few seconds, the event should plot onto the Measurements graph. Congratulations - you sent your first message to your IoT Central Application!
+5. Press the buttton several more times to trigger the rule you created. This should trigger the email action you created earlier
+__Note:__IoT Central checks aggregation in tumbling windows starting on the hour. This means you may not see an emaail alert for at least 11 minutes.
+6. Now you've set up your IoT Central Application, explore some of other features such as the [Creating a Webhook Alert](https://docs.microsoft.com/en-au/azure/iot-central/howto-create-webhooks) or [Exporting Data](https://docs.microsoft.com/en-au/azure/iot-central/howto-export-data)

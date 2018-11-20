@@ -1,4 +1,4 @@
-# teXXmoButon_IoTCentral
+# teXXmoButton IoTCentral
 
 This document contains all the instructions for connecting your teXXmo IoT Button to Azure IoT Central and triggering an action based on the number of clicks.
 
@@ -55,7 +55,7 @@ Something as simple as a button can have powerful actions when connected to Azur
 ![IoT Central - Delete Simulated](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.2.png)
 
 ## Creating and configuring a new physical Device
-1. You should see the *Device Explorer* window on-screen. If not, select the *Explorer* icon ![Explorer Icon](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image5.1.png) from the right-side menu
+1. You should see the *Device Explorer* window on-screen. If not, select the *Explorer* icon from the right-side menu
 
 ![IoT Central - Delete Simulated](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.4.1.png)
 

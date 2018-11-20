@@ -131,14 +131,14 @@ Something as simple as a button can have powerful actions when connected to Azur
 ## Generating a SAS Token using Device Provisioning Service
 1. Now you'll need to copy some credentials to connect your device. On the same page as your Measurement and Rule creation, select *Connect* at the top right of screen This will generate credentials for you to create a connection string through the Azure Device Provisioning Service (DPS).
 
-![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image3.2.png)
+![IoT Central - Connect](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image3.2.png)
 
 3. Save the following credentials for later use:
    - Under Device Connection, copy the *Scope ID* and *Device ID*
    - Under Credentials**, select *Shared Access Signature*, then copy the *Primary ID*
    - Select *Close* when complete
    
- ![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image3.3.png)
+ ![IoT Central - Credentials](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image3.3.png)
    
 4. A DPS client will now need to be installed to generate the Connection String for the real device. These instructions are from the[(DPS Key Generation Guide](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-add-device)
 

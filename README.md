@@ -22,12 +22,21 @@ Something as simple as a button can have powerful actions when connected to Azur
 ![IoT Central Main Page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.1.png)
 
 2. You'll be prompted to login in using your Microsoft account. Enter your credentials or create a new account using the links provided. 
+
+![Microsoft Account login page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.2.png)
+
 3. Follow the prompts until you arrive at the Application Manager page. Select the "New Application" tile to get started.
+
+![IoT Central - New Application](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.3.png)
+
 4. Now you'll configure the propeorties of your new IoT Central application
   a. Select the *trial* payment plan (or the pay-as-you-go option if you want to keep the applciation lonfer than 7 days)
   b. Select *Custom Application* as the template
-  c. Enter a suitable and unique *Application Name*
+  c. Enter a suitable *Application Name* and use a unique *URL*
   d. Press *Create* when done
+
+![IoT Central - Application Home Page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.5.png)
+
 5. That's it! You should now the see the main dashboard of your new IoT Central Application.
 
 ## Creating a Device Template

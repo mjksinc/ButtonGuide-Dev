@@ -18,6 +18,9 @@ Something as simple as a button can have powerful actions when connected to Azur
 
 ## Setting Up IoT Central
 1. Head on over to the the [IoT Central Homepage](https://azure.microsoft.com/en-au/services/iot-central/) to learn more or select [Getting Started](https://apps.azureiotcentral.com/) to begin creating your application.
+
+![IoT Central Main Page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.1.png)
+
 2. You'll be prompted to login in using your Microsoft account. Enter your credentials or create a new account using the links provided. 
 3. Follow the prompts until you arrive at the Application Manager page. Select the "New Application" tile to get started.
 4. Now you'll configure the propeorties of your new IoT Central application

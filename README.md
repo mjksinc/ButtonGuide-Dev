@@ -138,7 +138,7 @@ Something as simple as a button can have powerful actions when connected to Azur
    - Under Credentials**, select *Shared Access Signature*, then copy the *Primary ID*
    - Select *Close* when complete
    
- ![IoT Central - Credentials](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image3.3.png)
+ ![IoT Central - Credentials](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image3.3.png)
    
 4. A DPS client will now need to be installed to generate the Connection String for the real device. These instructions are from the[(DPS Key Generation Guide](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-add-device)
 
@@ -158,14 +158,14 @@ Note: these steps are also available under "*Getting Started*" [on the teXXmo pa
     
 3. Open a web browser and go to *192.168.4.1*. You should arrive at the homepage for your button.
 
-![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.1.png)
+![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image4.1.png)
 
 4. Select the *IoT Hub Configuration* tab at the top left of the screen. This is where we'll break down the connection string generated from DPS section:
   a. Under *Azure IoT Hub* copy the *Hostname*
   b. Under *IoT device name* copy the *Device ID*
   c. Under *IoT device secret* copy the *Shared Access Key*
   
-  ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.2.1.png)
+  ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image4.2.1.png)
   
   ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.2.2.png)
   

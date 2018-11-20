@@ -35,32 +35,69 @@ Something as simple as a button can have powerful actions when connected to Azur
   c. Enter a suitable *Application Name* and use a unique *URL*
   d. Press *Create* when done
 
-![IoT Central - Application Home Page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.5.png)
+![IoT Central - Configuration Page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.4.png)
 
 5. That's it! You should now the see the main dashboard of your new IoT Central Application.
 
+![IoT Central - Application Home Page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.5.png)
+
 ## Creating a Device Template
 1. Select *Create Device Templates* from the tile on the main dashboard or select *Application Builder > Create Device Template > Custom*
+
+![IoT Central - Application Builder, Template](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.1.png)
+
 2. Enter a unique name for you Device Template and select *Create* when complete
+
+![IoT Central - Create Template](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.1.png)
+
 3. This will generate a Simulated Device which you can use to create graphs, build dashboards, and get your application together before needing to connect a physcial device. Since we're using a physical device, we'll delete the simulated device. Select *Delete* to remove
+
+![IoT Central - Delete Simulated](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.2.png)
 
 ## Creating and configuring a new physical Device
 1. Go to the *Device Explorer* by selecting the icon on in the right-side menu
+
+- [ ] *TODO* Fix Flow
+
 2. Select the Button template you created, the click *+ > Real* to create a new real device
+
+- [ ] *TODO* Add Image of creating real device
+
 3. Enter the following details to create the device:
   a. A unique identifier. This will be used for the Device Provisioning Service. A MAC Address or Serial Number are suitable IDs
   b. A name for your button. This could be the same as the Device ID, or something completely different like location the button will be placed
   c. Select *Create* when completed
+
+![IoT Central - Create Device Template](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.4.png)
+
 4. You should now be on the device configuration page for the button you just created. If not, select *Device Explorer* in the right-side menu and navigate to your new device.
-5. You'll now configure the device's measurements. Specifically, the device will transmit a click *event* . Select *edit template* to begin configuring the measurements
-6. Make sure you're in the *measurements* tab, click *Edit Template* and select *+ New Measurement > Event* (you may need to scroll depending on the zoom level of your browser)
+
+![IoT Central - View Device Template](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.5.png)
+
+5. You'll now configure the device's measurements. Specifically, the device will transmit a click *event*. Make sure you're in the *measurements* tab, click *Edit Template*
+
+![IoT Central - Edit Measurement](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.5.1.png)
+
+6. Select *+ New Measurement > Event* (you may need to scroll depending on the zoom level of your browser)
+
+![IoT Central - Create Event](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.6.png)
+
 7. Now you'll configure the event parameters:
   a. Enter a *Display Name* for how the event will be labelled in your application
   b. Enter a *Field Name* for the measurement. __Note:__ This field name will need to be remembered for when you configure the button settings in future steps
   c. Set the *Default Severity* to any level for this use case
   d. Select *Save* when you're finished
+
+![IoT Central - Event Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.7.png)
+
 8. A *Rule* needs to be created so your IoT Central application knows when to trigger an action. Select the *Rules* tab and click *Edit Template*.
+
+![IoT Central - Create Rule](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.8.png)
+
 9. To add a new rule, select *+ New Rule* then *Event*
+
+![IoT Central - Edit Rule](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.9.png)
+
 10. Configure the rule with the following properties:
   a. *Name* should be descriptove of the rule's action to avoid confusion
   b. Select *Enable* for both the template and device options
@@ -69,8 +106,11 @@ Something as simple as a button can have powerful actions when connected to Azur
     ii. For *Aggregator*, select *Count*
     iii. For *Operator*, select *is Greater Than or Equal to*
     iv. Enter *2* for the threshold
-  d. Select the *time duration* under the *Aggregation Time Window* as 10 minutes
+  d. Select the *time duration* under the *Aggregation Time Window* as 5 minutes
   e. Click save to confirm properties
+
+![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.10.png)
+
 11. Now you've created the rule trigger, you'll need to create the action
   a. Scroll until you see *Actions* and click the adjacent *+* symbol.
   b. Select the email tile and enter the following details

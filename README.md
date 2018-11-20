@@ -111,23 +111,36 @@ Something as simple as a button can have powerful actions when connected to Azur
 
 ![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.10.png)
 
-11. Now you've created the rule trigger, you'll need to create the action
-  a. Scroll until you see *Actions* and click the adjacent *+* symbol.
-  b. Select the email tile and enter the following details
-    i. *Display Name*
-    ii. Recipient addresses in the *To* field
-    iii. A message to be included in the email under *Notes*
-  c. Click save when complete
-12. Congratualations! You've succssfully created a device in IoT Central and configured a rule to be actioned based on events from the button
+11. Now you've created the **Rule**, let's create the **Action** IoT Central should take if the Rule is triggered
+    - Select the Rule you just created
+    - Scroll until you see *Actions* in the window and click the adjacent *+* symbol.
+    - Select the email tile
+    
+![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.11.png)
+    
+12. Now you'll need to configure the email that's sent when the rule is triggered:
+      - Enter a *Display Name*
+      - Recipient addresses in the *To* field. **Note:** They have to have logged into your IoT Central applcaition previously to receive the email
+      - A message to be included in the email under *Notes*
+    - Click *Save* when complete
+    
+![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.11.png)
+    
+13. Congratualations! You've succssfully created a real device in IoT Central and configured a rule to be actioned based on events from the button
 
 ## Generating a SAS Token using Device Provisioning Service
-1. Now you'll need to copy some credentials to connect your device. Return to the *Device Explorer* page by selecting the icon in the right-side menu
-2. Select the device template, then the device you created previously
-3. Click *Connect* on the device screen. This will generate credentials for you to create a connection string through the Azure Device Provisioning Service (DPS).
-4. Save the following credentials for later use:
-  a. Under **Device Connection**, copy the *Scope ID* and *Device ID*
-  b. Under **Credentials**, select *Shared Access Signature*, then copy the *Primary ID*
-5. Select *Close* when complete
+1. Now you'll need to copy some credentials to connect your device. On the same page as your Measurement and Rule creation, select *Connect* at the top right of screen This will generate credentials for you to create a connection string through the Azure Device Provisioning Service (DPS).
+
+![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image3.2.png)
+
+3. Save the following credentials for later use:
+   - Under Device Connection, copy the *Scope ID* and *Device ID*
+   - Under Credentials**, select *Shared Access Signature*, then copy the *Primary ID*
+   - Select *Close* when complete
+   
+ ![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image3.3.png)
+   
+4. A DPS client will now need to be installed to generate the Connection String for the real device. These instructions are from the[(DPS Key Generation Guide](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-add-device)
 
 - [ ] *TODO* add Device Provisioning Steps
 
@@ -139,22 +152,43 @@ Note: these steps are also available under "*Getting Started*" [on the teXXmo pa
 ## Configuring your button
 1. Put the teXXmo button into Access Point (AP) mode by pressing and holding the button for 6 seconds. The LED will change to a yellow flashing strobe, then to a pulsing red.
     __Note:__ if the button begins to rapidly flash green, wait until it stops, then try again.
+    
 2. Open the network connection settings on your desktop and select the wifi network beginning with *ESP_XX:XX:XX* (The numbers will match the MAC address of your button). The light will continue to pulse red while in AP mode. 
     __Note:__ this will disconnect you from the internet
+    
 3. Open a web browser and go to *192.168.4.1*. You should arrive at the homepage for your button.
-4. Select the *IoT Hub Configuration* tab at the top left of the screen. This is where we'll break down the connection string generated in the previous section:
+
+![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.1.png)
+
+4. Select the *IoT Hub Configuration* tab at the top left of the screen. This is where we'll break down the connection string generated from DPS section:
   a. Under *Azure IoT Hub* copy the *Hostname*
   b. Under *IoT device name* copy the *Device ID*
   c. Under *IoT device secret* copy the *Shared Access Key*
+  
+  ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.2.1.png)
+  
+  ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.2.2.png)
+  
 5. Select the *WIFI* tab at the top of the screen and enter the SSID and Password for your wifi network to connect the button to the internet. Select *Save* when complete
-6. Next, click the *User JSON* tab. This is where you can write the JSON message the device will deliver when clicked. Enter the text below and click *Save* when complete
-  `{"click": "1"}
-  __Note:__ the key (in this case, "click") should match the Field Name you entered into IoT Central previously
+
+![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.3.png)
+
+6. Next, click the *User JSON* tab. This is where you can write the JSON message the device will deliver when clicked. Enter the text ```{"click": "1"}``` and click *Save* when complete
+__Note:__ the key (in this case, "click") should match the Field Name you entered into IoT Central previously
+
+![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.4.png)
+
 7. Now select the *Shutdown* tab so exit the homepage and save your configuration to the button
+
+![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.5.png)
+
 8. Reconnect to your original wifi network and return to your IoT Central Application
 
 ## Sending Telemetry and Visualising in IoT Central
 1. Now the physical button has been connected, return to the device page in your IoT Central Application by clicking *Device Explorer*, then the device template and device created previously
+
+![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.5.png)
+
 2. Click the *Measurements* tab to display the previously-created Event measurment.
 3. Push and hold the physical teXXmo button for ~1 second then release. You should see the green LED frantically flash, then emit a single green pulse to signify successful data transmission
 4. After a few seconds, the event should plot onto the Measurements graph. Congratulations - you sent your first message to your IoT Central Application!

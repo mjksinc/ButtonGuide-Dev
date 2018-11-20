@@ -124,30 +124,36 @@ Something as simple as a button can have powerful actions when connected to Azur
       - A message to be included in the email under *Notes*
     - Click *Save* when complete
     
-![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.11.png)
+![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.12.png)
     
 13. Congratualations! You've succssfully created a real device in IoT Central and configured a rule to be actioned based on events from the button
 
 ## Generating a SAS Token using Device Provisioning Service
-1. Now you'll need to copy some credentials to connect your device. On the same page as your Measurement and Rule creation, select *Connect* at the top right of screen This will generate credentials for you to create a connection string through the Azure Device Provisioning Service (DPS).
+1. On the same page as your Measurement and Rule creation, select *Connect* at the top right of screen This will generate credentials for you to create a connection string through the **Azure Device Provisioning Service (DPS)**.
 
 ![IoT Central - Connect](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image3.2.png)
 
-3. Save the following credentials for later use:
-   - Under Device Connection, copy the *Scope ID* and *Device ID*
-   - Under Credentials**, select *Shared Access Signature*, then copy the *Primary ID*
+2. Save the following credentials for later use:
+   - Under **Device Connection**, copy the *Scope ID* and *Device ID*
+   - Under **Credentials**, select *Shared Access Signature*, then copy the *Primary ID*
    - Select *Close* when complete
    
  ![IoT Central - Credentials](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image3.3.png)
    
-4. A DPS client will now need to be installed to generate the Connection String for the real device. These instructions are from the[(DPS Key Generation Guide](https://docs.microsoft.com/en-us/azure/iot-central/tutorial-add-device)
+3. A DPS client will now need to be installed to generate the Connection String for the real device. Install the **DPS Key Generator** (ds-keygen) through your Command Line Interface by following the instructions on the [DPS-KeyGen GitHub Repo](https://github.com/Azure/dps-keygen)
 
-- [ ] *TODO* add Device Provisioning Steps
+4. Now, install the platform-specific dps_cstr tool as instructed on the [dps_cstr tool GitHub Repo](https://github.com/Azure/dps-keygen/tree/master/bin)
 
-X. Now you've generated your connection string, it's time to connect your teXXmo button
+5. Execute the following command, replacing the argumetns with the credentials you saved in Step 2 above.
+```dps_cstr <Scope ID> <Device ID> <Primary ID>```
+
+7. Copy the entire output of this command and save your later use. Your saved output should look similar to the string below:
+```HostName=saas-iothub-51a5f13a-dfd7-42a1-862c-d756bb08a236.azure-devices.net;DeviceId=sw9u;SharedAccessKey=UJQKvC4sfHW0ux7IfhN2qJEMbFztcbD3xEDadHHVIFk=```
+
+6. Now you've generated your connection string, it's time to connect your teXXmo button!
 
 # TeXXmo Button
-Note: these steps are also available under "*Getting Started*" [on the teXXmo page](https://catalog.azureiotsolutions.com/details?title=teXXmo-IoT-Button&source=home-page) of the Azure Device Catalog
+**Note:** these steps are also available under "*Getting Started*" [on the teXXmo page](https://catalog.azureiotsolutions.com/details?title=teXXmo-IoT-Button&source=home-page) of the Azure Device Catalog
 
 ## Configuring your button
 1. Put the teXXmo button into Access Point (AP) mode by pressing and holding the button for 6 seconds. The LED will change to a yellow flashing strobe, then to a pulsing red.

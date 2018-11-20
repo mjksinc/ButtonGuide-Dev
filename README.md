@@ -42,9 +42,9 @@ Something as simple as a button can have powerful actions when connected to Azur
 ![IoT Central - Application Home Page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.5.png)
 
 ## Creating a Device Template
-1. Select *Create Device Templates* from the tile on the main dashboard or select *Application Builder > Create Device Template > Custom*.
+1. Select *Create Device Templates* from the tile on the main dashboard to create a new device template
 
-![IoT Central - Application Builder, Template](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.1.png)
+![IoT Central - Application Builder, Template](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.5.1.png)
 
 2. Enter a unique name for you Device Template and select *Create* when complete.
 
@@ -55,13 +55,13 @@ Something as simple as a button can have powerful actions when connected to Azur
 ![IoT Central - Delete Simulated](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.2.png)
 
 ## Creating and configuring a new physical Device
-1. Go to the *Device Explorer* by selecting the icon on in the right-side menu
+1. You should see the *Device Explorer* window on-screen. If not, select the *Explorer* icon ![Explorer Icon](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image5.1.png) from the right-side menu
 
-- [ ] *TODO* Fix Flow
+![IoT Central - Delete Simulated](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.4.1.png)
 
 2. Select the Button template you created, the click *+ > Real* to create a new real device
 
-- [ ] *TODO* Add Image of creating real device
+![IoT Central - Delete Simulated](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.4.2.png)
 
 3. Enter the following details to create the device:
   a. A unique identifier. This will be used for the Device Provisioning Service. A MAC Address or Serial Number are suitable IDs

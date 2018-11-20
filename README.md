@@ -161,9 +161,9 @@ Note: these steps are also available under "*Getting Started*" [on the teXXmo pa
 ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image4.1.png)
 
 4. Select the *IoT Hub Configuration* tab at the top left of the screen. This is where we'll break down the connection string generated from DPS section:
-  a. Under *Azure IoT Hub* copy the *Hostname*
-  b. Under *IoT device name* copy the *Device ID*
-  c. Under *IoT device secret* copy the *Shared Access Key*
+   - Under *Azure IoT Hub* copy the *Hostname*
+   - Under *IoT device name* copy the *Device ID*
+   - Under *IoT device secret* copy the *Shared Access Key*
   
   ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image4.2.1.png)
   

@@ -25,7 +25,7 @@ Something as simple as a button can have powerful actions when connected to Azur
 
 ![Microsoft Account login page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.2.png)
 
-3. Follow the prompts until you arrive at the Application Manager page. Select the "New Application" tile to get started.
+3. Follow the prompts until you arrive at the Application Manager page. Select the **New Application** tile to get started.
 
 ![IoT Central - New Application](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image1.3.png)
 

@@ -59,22 +59,22 @@ Something as simple as a button can have powerful actions when connected to Azur
 
 ![IoT Central - Delete Simulated](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.4.1.png)
 
-2. Select the Button template you created, the click *+ > Real* to create a new real device
+2. Select the Device Template you created, then click *+ > Real* to create a new real device
 
 ![IoT Central - Delete Simulated](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.4.2.png)
 
 3. Enter the following details to create the device:
-  a. A unique identifier. This will be used for the Device Provisioning Service. A MAC Address or Serial Number are suitable IDs
-  b. A name for your button. This could be the same as the Device ID, or something completely different like location the button will be placed
-  c. Select *Create* when completed
+   - A unique *Device ID*. This will be used for the Device Provisioning Service. A MAC Address or Serial Number are suitable IDs
+   - A *Device Name*. This could be the same as the Device ID, or something completely different like location the button will be placed
+   - Select *Create* when completed
 
 ![IoT Central - Create Device Template](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.4.png)
 
-4. You should now be on the device configuration page for the button you just created. If not, select *Device Explorer* in the right-side menu and navigate to your new device.
+4. You should now be on the **Device Configuration** page for the button you just created. If not, select *Device Explorer* in the right-side menu and navigate to your new device.
 
 ![IoT Central - View Device Template](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.5.png)
 
-5. You'll now configure the device's measurements. Specifically, the device will transmit a click *event*. Make sure you're in the *measurements* tab, click *Edit Template*
+5. You'll now configure the device's measurements. Specifically, the device will transmit a click *event*. Make sure you're in the *measurements* tab, then click *Edit Template*
 
 ![IoT Central - Edit Measurement](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.5.1.png)
 
@@ -83,10 +83,10 @@ Something as simple as a button can have powerful actions when connected to Azur
 ![IoT Central - Create Event](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.6.png)
 
 7. Now you'll configure the event parameters:
-  a. Enter a *Display Name* for how the event will be labelled in your application
-  b. Enter a *Field Name* for the measurement. __Note:__ This field name will need to be remembered for when you configure the button settings in future steps
-  c. Set the *Default Severity* to any level for this use case
-  d. Select *Save* when you're finished
+   - Enter a *Display Name* for how the event will be labelled in your application
+   - Enter a *Field Name* for the measurement. __Note:__ This field name will need to be remembered for when you configure the button settings in future steps
+   - Set the *Default Severity* to any level for this use case
+   - Select *Save* when you're finished
 
 ![IoT Central - Event Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.7.png)
 
@@ -94,20 +94,20 @@ Something as simple as a button can have powerful actions when connected to Azur
 
 ![IoT Central - Create Rule](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.8.png)
 
-9. To add a new rule, select *+ New Rule* then *Event*
+9. To add a new rule, select *+ New Rule* then choose *Event*. This should match the Measurement type selected in the previous steps
 
 ![IoT Central - Edit Rule](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.9.png)
 
-10. Configure the rule with the following properties:
-  a. *Name* should be descriptove of the rule's action to avoid confusion
-  b. Select *Enable* for both the template and device options
-  c. Click the *+* symbol next to *Conditions*
-    i. Click the dropdown box under *Measurements* and choose the event you created earlier
-    ii. For *Aggregator*, select *Count*
-    iii. For *Operator*, select *is Greater Than or Equal to*
-    iv. Enter *2* for the threshold
-  d. Select the *time duration* under the *Aggregation Time Window* as 5 minutes
-  e. Click save to confirm properties
+10. You'll now create the rule that IoT Central will monitor. In this case, at least 2 button presses within 5 minutes. Configure the rule with the following properties:
+    - *Name* should be descriptive of the rule's action for easy understanding
+    - Select *Enable* for both the template and device options
+    - Click the *+* symbol next to *Conditions*
+      - Click the dropdown box under *Measurement* and choose the event you created earlier
+      - For *Aggregation*, select *Count*
+      - For *Operator*, select *is greater than or equal to*
+      - Enter the *Threshold* as *2*
+    - Select the *time duration* under the *Aggregation time window* as 5 minutes
+    - Click *Save* to confirm properties
 
 ![IoT Central - Rule Details](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image2.10.png)
 

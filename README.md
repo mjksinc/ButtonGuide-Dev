@@ -169,7 +169,7 @@ Something as simple as a button can have powerful actions when connected to Azur
 ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image4.1.png)
 
 4. Select the *IoT Hub Configuration* tab at the top left of the screen. This is where we'll break down the connection string generated from DPS section:
-   - Copy the *Azure IoT Hub* from teh *Hostname*
+   - Copy the *Azure IoT Hub* from the *Hostname*
    - Copy the *IoT device name* from the *Device ID*
    - Copy the *IoT device secret* from the *Shared Access Key*
   
@@ -181,25 +181,35 @@ Something as simple as a button can have powerful actions when connected to Azur
 
 ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.3.png)
 
-6. Next, click the *User JSON* tab. This is where you can write the JSON message the device will deliver when clicked. Enter the text ```{"click": "1"}``` and click *Save* when complete
-**:** the key (in this case, "click") should match the Field Name you entered into IoT Central previously
+6. Next, click the *User JSON* tab. This is where you can write the JSON message the device will deliver when clicked. Enter the text ```{"click": "true"}``` and click *Save* when complete
+**Note:** the key (in this case, "click") should match the Field Name you entered into IoT Central previously
 
 ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.4.png)
 
-7. Now select the *Shutdown* tab so exit the homepage and save your configuration to the button
+7. Now select the *Shutdown* tab and click the *Shutdown* button to exit the homepage and save your configuration to the button
 
 ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.5.png)
 
-8. Reconnect to your original wifi network and return to your IoT Central Application
+8. Reconnect to your computer to the original wifi network and return to your IoT Central Application (either through the direct url, or going to [apps.azureiotcentral.com](apps.azureiotcentral.com) and logging in with your credentials)
 
 ## Sending Telemetry and Visualising in IoT Central
 1. Now the physical button has been connected, return to the device page in your IoT Central Application by clicking *Device Explorer*, then the device template and device created previously
 
-![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.5.png)
+![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image5.1.png)
 
 2. Click the *Measurements* tab to display the previously-created Event measurment.
+
+![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image5.2.png)
+
 3. Push and hold the physical teXXmo button for ~1 second then release. You should see the green LED frantically flash, then emit a single green pulse to signify successful data transmission
-4. After a few seconds, the event should plot onto the Measurements graph. Congratulations - you sent your first message to your IoT Central Application!
+
+4. After a few seconds, the event should plot onto the **Measurements** graph. Congratulations - you sent your first message to your IoT Central Application!
+
+![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image5.3.png)
+
 5. Press the buttton several more times to trigger the rule you created. This should trigger the email action you created earlier
-**Note:** IoT Central checks aggregation in tumbling windows starting on the hour. This means you may not see an emaail alert for at least 11 minutes.
+**Note:** IoT Central checks aggregation in tumbling windows starting on the hour.
+
+![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image5.4.png)
+
 6. Now you've set up your IoT Central Application, explore some of other features such as the [Creating a Webhook Alert](https://docs.microsoft.com/en-au/azure/iot-central/howto-create-webhooks) or [Exporting Data](https://docs.microsoft.com/en-au/azure/iot-central/howto-export-data)

@@ -1,4 +1,4 @@
-# teXXmoButton IoTCentral
+# Connect teXXmoButton to IoT Central
 
 This document contains all the instructions for connecting your teXXmo IoT Button to Azure IoT Central and triggering an action based on the number of clicks.
 

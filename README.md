@@ -144,10 +144,12 @@ Something as simple as a button can have powerful actions when connected to Azur
 
 4. Now, install the platform-specific dps_cstr tool as instructed on the [dps_cstr tool GitHub Repo](https://github.com/Azure/dps-keygen/tree/master/bin)
 
-5. Execute the following command, replacing the argumetns with the credentials you saved in Step 2 above.
+5. Execute the following command, replacing the arguments with the credentials you saved in Step 2 above.
+
 ```dps_cstr <Scope ID> <Device ID> <Primary ID>```
 
 7. Copy the entire output of this command and save your later use. Your saved output should look similar to the string below:
+
 ```HostName=saas-iothub-51a5f13a-dfd7-42a1-862c-d756bb08a236.azure-devices.net;DeviceId=sw9u;SharedAccessKey=UJQKvC4sfHW0ux7IfhN2qJEMbFztcbD3xEDadHHVIFk=```
 
 6. Now you've generated your connection string, it's time to connect your teXXmo button!
@@ -157,19 +159,19 @@ Something as simple as a button can have powerful actions when connected to Azur
 
 ## Configuring your button
 1. Put the teXXmo button into Access Point (AP) mode by pressing and holding the button for 6 seconds. The LED will change to a yellow flashing strobe, then to a pulsing red.
-    __Note:__ if the button begins to rapidly flash green, wait until it stops, then try again.
+    **Note:** if the button begins to rapidly flash green, wait until it stops, then try again.
     
 2. Open the network connection settings on your desktop and select the wifi network beginning with *ESP_XX:XX:XX* (The numbers will match the MAC address of your button). The light will continue to pulse red while in AP mode. 
-    __Note:__ this will disconnect you from the internet
+    **Note:** this will disconnect you from the internet
     
 3. Open a web browser and go to *192.168.4.1*. You should arrive at the homepage for your button.
 
 ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image4.1.png)
 
 4. Select the *IoT Hub Configuration* tab at the top left of the screen. This is where we'll break down the connection string generated from DPS section:
-   - Under *Azure IoT Hub* copy the *Hostname*
-   - Under *IoT device name* copy the *Device ID*
-   - Under *IoT device secret* copy the *Shared Access Key*
+   - Copy the *Azure IoT Hub* from teh *Hostname*
+   - Copy the *IoT device name* from the *Device ID*
+   - Copy the *IoT device secret* from the *Shared Access Key*
   
   ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/image4.2.1.png)
   
@@ -180,7 +182,7 @@ Something as simple as a button can have powerful actions when connected to Azur
 ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.3.png)
 
 6. Next, click the *User JSON* tab. This is where you can write the JSON message the device will deliver when clicked. Enter the text ```{"click": "1"}``` and click *Save* when complete
-__Note:__ the key (in this case, "click") should match the Field Name you entered into IoT Central previously
+**:** the key (in this case, "click") should match the Field Name you entered into IoT Central previously
 
 ![teXXmo welcome page](https://github.com/mjksinc/ButtonGuide-Dev/blob/master/images/Image4.4.png)
 
@@ -199,5 +201,5 @@ __Note:__ the key (in this case, "click") should match the Field Name you entere
 3. Push and hold the physical teXXmo button for ~1 second then release. You should see the green LED frantically flash, then emit a single green pulse to signify successful data transmission
 4. After a few seconds, the event should plot onto the Measurements graph. Congratulations - you sent your first message to your IoT Central Application!
 5. Press the buttton several more times to trigger the rule you created. This should trigger the email action you created earlier
-__Note:__IoT Central checks aggregation in tumbling windows starting on the hour. This means you may not see an emaail alert for at least 11 minutes.
+**Note:** IoT Central checks aggregation in tumbling windows starting on the hour. This means you may not see an emaail alert for at least 11 minutes.
 6. Now you've set up your IoT Central Application, explore some of other features such as the [Creating a Webhook Alert](https://docs.microsoft.com/en-au/azure/iot-central/howto-create-webhooks) or [Exporting Data](https://docs.microsoft.com/en-au/azure/iot-central/howto-export-data)
